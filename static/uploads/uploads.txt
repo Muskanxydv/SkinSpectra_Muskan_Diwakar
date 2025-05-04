@@ -1,0 +1,1 @@
+The uploaded pics by the user will be stored in this folder
