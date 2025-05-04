@@ -1,1 +1,143 @@
-xcvbn
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Sniglet', sans-serif;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #13012F 0%, #2D026F 41%, #471A8E 100%);
+    z-index: -1;
+}
+
+.navbar {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    background: rgba(217, 217, 217, 0.56);
+    box-shadow: 0px 4px 67px 6px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.brand-name {
+    font-family: 'Zen Dots', cursive;
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+.about-us-box {
+    position: absolute;
+    margin: 20px;
+    left: 80%;
+    width: 200px;
+    height: 45px;
+    background: linear-gradient(90deg, #4300AD 0%, #AA00FF 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.about-us-text {
+    font-size: 32px;
+    color: #FFFFFF;
+}
+
+.intro-text {
+    max-width: 870px;
+    margin: 50px auto;
+    font-size: 32px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.image-choose-box {
+    width: 90%;
+    max-width: 851px;
+    margin: 0 auto;
+    background: #000000;
+    opacity: 0.8;
+    box-shadow: 23px 23px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-choose-text {
+    font-size: 36px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.upload-box {
+    width: 190px;
+    height: 57px;
+    background: rgba(255, 255, 255, 0.56);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-text {
+    font-size: 32px;
+    color: #FFFFFF;
+}
+
+.copyright-text {
+    margin-top: 40px;
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.image-preview-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+  }
+  
+  .image-choose-plus {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+  }
+  
+  .plus-icon {
+    font-size: 48px;
+    color: #999;
+  }
+  
+  .cancel-icon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

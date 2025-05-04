@@ -1,0 +1,71 @@
+body.palette-bg {
+    margin: 0;
+    padding: 0;
+    font-family: 'Sniglet', sans-serif;
+    background: linear-gradient(180deg, #13012F 0%, #2D026F 40.87%, #471A8E 100%);
+    min-height: 100vh;
+    color: white;
+    text-align: center;
+  }
+  
+  .navbar {
+    width: 100%;
+    height: 55px;
+    background: rgba(217, 217, 217, 0.56);
+    box-shadow: 0px 4px 67px 6px rgba(0, 0, 0, 0.25);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .brand-name {
+    font-family: 'Zen Dots', cursive;
+    font-size: 2.5rem;
+    color: #FFFFFF;
+  }
+  
+  .palette-container {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 1rem;
+  }
+  
+  .tone-heading,
+  .rgb-heading,
+  .rec-heading {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+  
+  .color-palette {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .color-box {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  }
+  
+  .upload-another {
+    display: inline-block;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: 2px solid white;
+    border-radius: 8px;
+    transition: background 0.3s;
+  }
+  
+  .upload-another:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
