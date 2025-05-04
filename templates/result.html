@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkinSpectra - Pick Skin Tone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sniglet&family=Zen+Dots&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Sniglet', sans-serif;
+      background: linear-gradient(180deg, #13012F 0%, #2D026F 40.87%, #471A8E 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .navbar {
+      width: 100%;
+      height: 55px;
+      background: rgba(217, 217, 217, 0.56);
+      box-shadow: 0px 4px 67px 6px rgba(0, 0, 0, 0.25);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .brand {
+      font-family: 'Zen Dots', cursive;
+      font-size: 2.5rem;
+      color: #fff;
+    }
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 20px 0;
+    }
+    #canvas {
+      max-width: 90vw;
+      max-height: 60vh;
+      border: 3px solid #000;
+      cursor: crosshair;
+    }
+    .info {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+    #selectedColor {
+      width: 150px;
+      height: 150px;
+      border: 5px solid #000;
+      margin-top: 10px;
+    }
+    form {
+      margin-top: 30px;
+    }
+    .recommend-button {
+      background: rgba(255, 255, 255, 0.6);
+      color: #ffffff;
+      font-family: "Sniglet", sans-serif;
+      padding: 15px 30px;
+      padding-bottom: 20pxS;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="brand">SkinSpectra</div>
+  </div>
+  <h1>Click on your skin area to detect skin tone</h1>
+  <canvas id="canvas"></canvas>
+  <div class="info">Selected Color: <span id="colorCode">None</span></div>
+  <div id="selectedColor"></div>
+
+  <form action="/analyze" method="POST">
+    <input type="hidden" name="r" id="r">
+    <input type="hidden" name="g" id="g">
+    <input type="hidden" name="b" id="b">
+    <button type="submit" class="recommend-button">Get Recommended Colors</button>
+  </form>
+
+  <script>
+    const image = new Image();
+    image.src = "{{ url_for('static', filename='uploads/' + filename) }}";
+
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    image.onload = () => {
+      const scale = Math.min(window.innerWidth * 0.9 / image.width, window.innerHeight * 0.6 / image.height);
+      canvas.width = image.width * scale;
+      canvas.height = image.height * scale;
+      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    };
+
+    canvas.addEventListener('click', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const pixel = ctx.getImageData(x, y, 1, 1).data;
+      const [r, g, b] = pixel;
+
+      document.getElementById('r').value = r;
+      document.getElementById('g').value = g;
+      document.getElementById('b').value = b;
+
+      const rgb = `rgb(${r}, ${g}, ${b})`;
+      document.getElementById('colorCode').innerText = rgb;
+      document.getElementById('selectedColor').style.backgroundColor = rgb;
+    });
+  </script>
+</body>
+</html>

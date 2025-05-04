@@ -1,1 +1,74 @@
-bgfvdcs
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkinSpectra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sniglet&family=Zen+Dots&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="navbar">
+    <div class="brand-name">SkinSpectra</div>
+    <div class="about-us-box">
+      <a href="{{ url_for('about') }}">
+        <div class="about-us-text">About Us</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="intro-text">
+    Unlock Your True Hue!<br><br>
+    Step into a world where your skin tone meets personalized style. Upload your photo, and let our smart analyzer
+    unveil the perfect colors that complement your natural glow. Whether it’s for fashion, makeup, or just embracing
+    your beauty, discover a palette designed just for you. Your skin’s perfect match is only a click away—because
+    the right shade makes all the difference!
+  </div>
+
+  <form action="/upload" method="POST" enctype="multipart/form-data" class="image-choose-box">
+    <div class="image-choose-text">Choose an image to analyze your skin tone!!!</div>
+
+    <div class="image-preview-wrapper">
+      <label for="imageUpload" class="image-choose-plus" id="imagePreview">
+        <span class="plus-icon">+</span>
+      </label>
+      <span class="cancel-icon" id="cancelImage" style="display: none;">&#10006;</span>
+      <input type="file" id="imageUpload" name="file" accept="image/*" style="display: none;" />
+    </div>
+    
+
+    <button type="submit" class="upload-box">
+      <div class="upload-text">Upload</div>
+    </button>
+  </form>
+
+  <div class="copyright-text">© 2025 SkinSpectra. All rights reserved.</div>
+  <script>
+    const imageUpload = document.getElementById('imageUpload');
+    const imagePreview = document.getElementById('imagePreview');
+    const cancelImage = document.getElementById('cancelImage');
+    const plusIcon = imagePreview.querySelector('.plus-icon');
+  
+    imageUpload.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          imagePreview.style.backgroundImage = `url('${e.target.result}')`;
+          plusIcon.style.display = 'none';
+          cancelImage.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  
+    cancelImage.addEventListener('click', function () {
+      imageUpload.value = "";
+      imagePreview.style.backgroundImage = 'none';
+      plusIcon.style.display = 'block';
+      cancelImage.style.display = 'none';
+    });
+  </script>  
+</body>
+</html>

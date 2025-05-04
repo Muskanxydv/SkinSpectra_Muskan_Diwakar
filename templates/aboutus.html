@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkinSpectra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sniglet&family=Zen+Dots&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='aboutus.css') }}">
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="navbar">
+    <div class="brand-name">SkinSpectra</div>
+    <div class="homepage-box">
+      <a href="{{ url_for('index') }}">
+        <div class="home-text">Home</div>
+      </a>
+    </div>
+
+  <div class="container">
+    <div class="card">
+      <img src="{{ url_for('static', filename='Muskan.jpg') }}" alt="Muskan">
+      <h3>Muskan</h3>
+      <p><strong>Role:</strong> Backend</p>
+      <p><strong>Domain:</strong> Data science</p>
+      <p><strong>Year of Study:</strong> 1st</p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/muskan-yadav-31028632a">Muskan</a></p>
+    </div>
+
+    <div class="card">
+      <img src="{{ url_for('static', filename='Diwakar.jpg') }}" alt="Diwakar">
+      <h3>Diwakar</h3>
+      <p><strong>Role:</strong> Frontend</p>
+      <p><strong>Domain:</strong> Computer science</p>
+      <p><strong>Year of Study:</strong> 1st</p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/diwakar-a98505311">Diwakar</a></p>
+    </div>
+  </div>
+
+</body>
+</html>
