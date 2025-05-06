@@ -59,7 +59,7 @@ SkinSpectra isn't just about colors — it's about confidence. Our goal is to em
 ## 🛠️ Setup Instructions
 
 ```bash
-git clone https://github.com/yourusername/skinspectra.git
+git clone https://github.com/Muskanxydv/skinspectra.git
 cd skinspectra
 pip install -r requirements.txt
 python app.py
