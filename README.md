@@ -18,7 +18,7 @@
 
 ## 🎥 Video Explanation
 
-**[Click here to watch the video explanation](#)** *(Insert link here)*
+[Click here to watch the video explanation](https://github.com/Muskanxydv/SkinSpectra_Muskan_Diwakar/blob/main/SkinSpectra_Video.mp4)
 
 ## 💡 Features
 
